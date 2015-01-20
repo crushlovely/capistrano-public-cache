@@ -36,9 +36,10 @@ The task will run after `deploy:published` as part of Capistrano's default deplo
 Configurable options:
 
 ``` ruby
-set :public_cache_roles, :web  # this is default
-set :public_cache_base_url, '' # this is default
-set :public_cache_files, {}    # this is default
+set :public_cache_roles, :web       # this is default
+set :public_cache_base_url, ''      # this is default
+set :public_cache_curl_flags, '-sS' # this is default
+set :public_cache_files, {}         # this is default
 ```
 
 Some notes about configuration:
@@ -46,6 +47,7 @@ Some notes about configuration:
 * Leaving `:public_cache_base_url` and `:public_cache_files` as their default values will result in nothing happening when the task is run.
 * `:public_cache_base_url` should be set to the base URL of your application, e.g. `http://youapp.com`, `http://localhost:5000`, etc.
 * `:public_cache_files` should be a hash where the keys are the source path of the content you want to cache and the values are the file path (relative to your deployment's public directory) where you want it cached.
+* `:public_cache_curl_flags` can be a string of flags to pass through to `curl`. We like to use `-sS --retry 5`, which keeps curl silent except when failure occurs and also retries up to five times in case our application is taking its time starting up.
 
 ## Why?
 

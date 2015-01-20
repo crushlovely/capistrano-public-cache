@@ -16,7 +16,7 @@ namespace :public_cache do
       fetch(:public_cache_files).each do |source_path, destination_path|
         source = [fetch(:public_cache_base_url), source_path].join
         public_path = release_path.join('public')
-        execute :curl, source, '>', public_path.join(destination_path)
+        execute :curl, fetch(:public_cache_curl_flags), source, '>', public_path.join(destination_path)
       end
     end
   end
@@ -28,6 +28,7 @@ namespace :load do
   task :defaults do
     set :public_cache_roles, :web
     set :public_cache_base_url, ''
+    set :public_cache_curl_flags, '-sS'
     set :public_cache_files, {}
   end
 end
