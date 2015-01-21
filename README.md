@@ -51,12 +51,14 @@ Some notes about configuration:
 
 ## Why?
 
-We like to manage our application's error pages within Rails, but it's a good idea to have static versions available for the web server to use too. As such, our configuration usually looks like this:
+We like to [manage our application's error pages within Rails](https://github.com/crushlovely/exceptionally_beautiful), but it's also a good idea to have static versions available for the web server to use too. As such, our configuration usually looks like this:
 
 ``` ruby
-set :public_cache_files, '/errors/404' => '404.html',
+set :public_cache_files, '/errors/403' => '403.html',
+                         '/errors/404' => '404.html',
                          '/errors/422' => '422.html',
-                         '/errors/500' => '500.html',
+                         '/errors/502' => '502.html',
+                         '/errors/500' => '500.html'
 ```
 
 ## Contributing
