@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'capistrano-public-cache'
-  spec.version       = '0.0.2'
+  spec.version       = '0.0.3'
   spec.authors       = ['PJ Kelly']
   spec.email         = ['pj@crushlovely.com']
   spec.description   = %q{Cache dynamic pages into your public folder on deploy.}
