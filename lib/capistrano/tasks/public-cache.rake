@@ -20,8 +20,6 @@ namespace :public_cache do
       end
     end
   end
-
-  after 'deploy:published', 'public_cache:build'
 end
 
 namespace :load do

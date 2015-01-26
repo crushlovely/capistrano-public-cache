@@ -31,7 +31,13 @@ Require in `Capfile` to use the default task:
 require 'capistrano/public-cache'
 ```
 
-The task will run after `deploy:published` as part of Capistrano's default deploy, or can be run in isolation with `cap public_cache:build`
+In most cases you will want to run the task after `deploy:published` as part of Capistrano's default deploy. To do that, just add the following to your `deploy.rb`:
+
+``` ruby
+after 'deploy:published', 'public_cache:build'
+```
+
+It can also be run in isolation with `cap public_cache:build`.
 
 Configurable options:
 
